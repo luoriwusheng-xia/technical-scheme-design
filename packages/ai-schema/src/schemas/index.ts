@@ -16,17 +16,15 @@
  */
 
 import { toJSONSchema } from 'zod';
-import { RecipeExtractorSchema } from './recipeExtractor.js';
 import { AIOutputSchema } from '../blocks/index.js';
 
 /**
  * schemas：Zod Schema 字典
  *
- * key 是 schemaId（如 "recipe-extractor"），也是前后端接口中传递的标识符。
+ * key 是 schemaId（如 "ai-output"），也是前后端接口中传递的标识符。
  * value 是对应的 Zod Schema 对象。
  */
 export const schemas = {
-  'recipe-extractor': RecipeExtractorSchema,
   'ai-output': AIOutputSchema,
 } as const;
 
@@ -42,6 +40,5 @@ export type SchemaId = keyof typeof schemas;
  * 供 OpenAI / Anthropic / Gemini 的原生 API 使用。
  */
 export const jsonSchemas = {
-  'recipe-extractor': toJSONSchema(RecipeExtractorSchema),
   'ai-output': toJSONSchema(AIOutputSchema),
 };

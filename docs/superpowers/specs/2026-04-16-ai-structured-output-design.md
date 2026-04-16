@@ -728,12 +728,19 @@ const client = new OpenAI({
 
 ---
 
-## 9. 待实现清单
+## 9. 实现状态
 
-- [ ] 初始化 `packages/ai-schema` 共享包
-- [ ] 实现 `backend/adapters/` 下各模型 Adapter 文件
-- [ ] 实现 `structuredOutput.ts` 统一服务与校验逻辑
-- [ ] 实现 Express Route `/api/ai/generate`
-- [ ] 前端 Vue3 `useAIGenerate` composable
-- [ ] 前端 `componentRegistry` 严格映射
-- [ ] 集成测试（覆盖 OpenAI / Anthropic / Gemini / Fallback 四种路径）
+### 已完成
+- [x] 初始化 `packages/ai-schema` 共享包（含 Block-based Zod Schema 与组件白名单）
+- [x] 实现 `backend/adapters/` 下各模型 Adapter（OpenAI / Anthropic / Gemini / Kimi / Fallback）
+- [x] 实现 `structuredOutput.ts` 统一服务与校验逻辑
+- [x] 实现 Express Route `/api/ai/generate`
+- [x] 前端 Vue3 `useAIGenerate` composable
+- [x] 前端 `AIRenderer.vue` Block 严格映射渲染
+- [x] Node 24 原生 `--env-file` 环境变量配置
+
+### 待补充
+- [ ] 集成测试（覆盖 OpenAI / Anthropic / Gemini / Kimi / Fallback 五种路径）
+- [ ] 接入 `markstream-vue` 替换当前 Markdown 占位渲染
+- [ ] `fallbackAdapter.ts` 中补充通用 LLM HTTP 客户端实现
+- [ ] 生产环境日志与监控告警埋点

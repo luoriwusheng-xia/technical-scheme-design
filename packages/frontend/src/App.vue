@@ -4,7 +4,6 @@ import { useAIGenerate } from './composables/useAIGenerate'
 import AIRenderer from './components/AIRenderer.vue'
 
 const prompt = ref('')
-const schemaId = ref('recipe-extractor')
 const provider = ref<'openai' | 'anthropic' | 'gemini' | 'kimi' | 'fallback'>('openai')
 
 const { generate, result, loading, error } = useAIGenerate()
@@ -21,16 +20,12 @@ const { generate, result, loading, error } = useAIGenerate()
         <option value="kimi">Kimi</option>
         <option value="fallback">Fallback</option>
       </select>
-      <select v-model="schemaId">
-        <option value="recipe-extractor">Recipe Extractor</option>
-        <option value="ai-output">Generic AI Output</option>
-      </select>
       <textarea
         v-model="prompt"
         rows="4"
         placeholder="Enter your prompt here..."
       />
-      <button :disabled="loading" @click="generate({ provider, schemaId, prompt: prompt || 'Give me a recipe for chocolate chip cookies.' })">
+      <button :disabled="loading" @click="generate({ provider, schemaId: 'ai-output', prompt: prompt || 'What is 1 + 1?' })">
         {{ loading ? 'Generating...' : 'Generate' }}
       </button>
     </div>
