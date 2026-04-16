@@ -1,0 +1,28 @@
+{
+  "name": "@aiblocks/backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx --env-file=.env.development --watch src/index.ts",
+    "build": "tsc",
+    "start": "node --env-file=.env.production dist/index.js"
+  },
+  "dependencies": {
+    "@aiblocks/ai-schema": "workspace:*",
+    "@anthropic-ai/sdk": "^0.89.0",
+    "@google/genai": "^1.50.1",
+    "express": "^5.2.1",
+    "openai": "^6.34.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}
